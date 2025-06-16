@@ -15,16 +15,14 @@ export default function Settings({ className, conversationId }: IAppView) {
                     {PII_TYPE_OPTIONS.map((type) => (
                     <div key={type.entity} className="relative flex gap-3 py-1 items-center">
                         <div className="flex h-6 shrink-0 items-center">
-                            <div className="group flex size-3 grid-cols-1">
-                                <input
-                                    id={`${type.entity}`}
-                                    name={`${type.entity}`}
-                                    checked={privacySettings[type.entity]}
-                                    type="checkbox"
-                                    className="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:bg-blue-600 indeterminate:bg-blue-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto"
-                                    onChange={() => handleTogglePrivacy(type.entity)}
-                                />
-                            </div>
+                            <input
+                                id={`${type.entity}`}
+                                name={`${type.entity}`}
+                                checked={privacySettings[type.entity]}
+                                type="checkbox"
+                                className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                                onChange={() => handleTogglePrivacy(type.entity)}
+                            />
                         </div>
                         <div className="min-w-0 flex-1 text-sm/6">
                             <label htmlFor={`${type.entity}`} className="inline-block rounded-lg px-2 text-sm text-slate-700">
