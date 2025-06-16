@@ -43,7 +43,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     };
 
     const loginWithGoogle = async () => {
-            await signInWithRedirect({ provider: "Google" })
+        await signInWithRedirect({ provider: "Google" })
     };
 
 
