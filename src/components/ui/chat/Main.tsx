@@ -8,7 +8,10 @@ import { useChat } from "@/hooks/useChat";
 
 export default function Main({className, conversationId}: IAppView) {
 
-    const { messages } = useChat(conversationId);
+
+    console.log("ConversationId: ", conversationId)
+
+    const { messages, handleSendMessage } = useChat(conversationId);
     const chatContainerRef = useRef<HTMLDivElement>(null);
 
     // Auto-scroll to bottom when messages update
@@ -48,7 +51,7 @@ export default function Main({className, conversationId}: IAppView) {
                 ))}
             </div>
 
-            <Input conversationId={conversationId}/>
+            <Input handleSendMessage={handleSendMessage}/>
 
         </div>
     )

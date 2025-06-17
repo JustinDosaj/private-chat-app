@@ -1,11 +1,9 @@
-import { IAppView } from "@/types/settings"
+import { IAppInput } from "@/types/settings"
 import React, { useEffect, useRef, useState } from "react"
 import { PaperAirplaneIcon } from "@heroicons/react/24/solid"
-import { useChat } from "@/hooks/useChat";
 
-export default function Input({className, conversationId }: IAppView) {
+export default function Input({className, handleSendMessage }: IAppInput) {
     
-    const { handleSendMessage } = useChat(conversationId)
     const [input, setInput] = useState<string>('');
     const textareaRef = useRef<HTMLTextAreaElement>(null);
 
