@@ -4,7 +4,7 @@ import React, { createContext, useState, ReactNode } from "react";
 import { getConversations, deleteConversation, editConversation } from "@/services/api.service";
 import { IConversations, IEdit } from "@/types/chat";
 import { useAuth } from "@/hooks/useAuth";
-import { Notify } from "@/hooks/useNotify";
+import { Notify } from "@/utils/notify.utils";
 
 interface IConversationContext {
     fetchConversations: () => void,
