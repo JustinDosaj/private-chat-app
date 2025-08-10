@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { Popover, PopoverButton, PopoverBackdrop, PopoverPanel } from '@headlessui/react'
 import clsx from 'clsx'
-import { NavLink } from './NavLink'
+import { NavButton, NavLink } from './NavLink'
 import { Button } from '../ui/Button'
 import { Container } from '../ui/Container'
 import { Logo } from '../ui/Logo'
@@ -111,7 +111,7 @@ function DesktopNavigation() {
 
 export function Navbar() {
 
-    const { user } = useAuth();
+    const { user, loginWithGoogle } = useAuth();
 
     return (
         <header className="py-10">
@@ -138,7 +138,7 @@ export function Navbar() {
                 : 
                   <>
                     <div className="hidden md:block">
-                      <NavLink href="/login">Sign in</NavLink>
+                      <NavButton onClick={loginWithGoogle}>Sign in</NavButton>
                     </div>
                     <Button href="/register" color="blue">
                       <span>

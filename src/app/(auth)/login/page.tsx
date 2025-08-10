@@ -15,6 +15,7 @@ export default function Login() {
     const [email, setEmail] = useState<string>('')
     const [isLoading, setIsLoading] = useState<boolean>(false)
 
+    // @TODO: Handle email/password authentication
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setIsLoading(true)
