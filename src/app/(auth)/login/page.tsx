@@ -39,14 +39,11 @@ export default function Login() {
             Sign in to your account
         </h2>
         <p className="mt-2 text-sm text-gray-700">
-          Don’t have an account?{' '}
-          <Link
-            href="/register"
-            className="font-medium text-blue-600 hover:underline"
-          >
-            Sign up
-          </Link>{' '}
-          for a free.
+            Don’t have an account?{' '}
+            <Link href="/register" className="font-medium text-blue-600 hover:underline">
+                Sign up
+            </Link>{' '}
+            for a free.
         </p>
         <form onSubmit={handleSubmit} className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2">
             <TextField
@@ -73,7 +70,7 @@ export default function Login() {
         <div>
             <div className="relative mt-6">
                 <div aria-hidden="true" className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-200" />
+                    <div className="w-full border-t border-gray-200" />
                 </div>
                 <div className="relative flex justify-center text-sm/6 font-medium">
                     <span className="bg-white px-6 text-gray-900">Or continue with</span>

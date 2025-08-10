@@ -42,11 +42,8 @@ export default function Register() {
         </h2>
         <p className="mt-2 text-sm text-gray-700">
             Already registered?{' '}
-            <Link
-            href="/login"
-            className="font-medium text-blue-600 hover:underline hover:cursor-pointer"
-            >
-            Sign in
+            <Link href="/login" className="font-medium text-blue-600 hover:underline hover:cursor-pointer">
+                Sign in
             </Link>{' '}
             to your account.
         </p>
