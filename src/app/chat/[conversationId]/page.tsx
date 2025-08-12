@@ -8,9 +8,12 @@ import { useConversations } from '@/hooks/useConversations';
 import { useParams } from 'next/navigation';
 import { Bars3Icon, AdjustmentsHorizontalIcon } from '@heroicons/react/24/outline';
 import { SelectModel } from '@/components/ui/chat/SelectModel';
+import { useChat } from '@/hooks/useChat';
 
 const ChatPage = () => {
+    
     const { conversationId } = useParams() as { conversationId: string };
+    const { messages, handleSendMessage, privacySettings, handleTogglePrivacy, handleToggleAllPrivacy } = useChat(conversationId)
     const { fetchConversations } = useConversations();
     const [showMenu, setShowMenu] = useState(false);
     const [showSettings, setShowSettings] = useState(false);
@@ -47,14 +50,16 @@ const ChatPage = () => {
             )}
 
             {/* Main Chat Area */}
-            <Main conversationId={conversationId}/>
+            <Main messages={messages} handleSendMessage={handleSendMessage}/>
         
 
             {/* Settings (right) */}
             <div className={`fixed md:static z-40 bg-slate-50 h-full top-0 right-0 transition-transform duration-300 transform ${showSettings ? 'translate-x-0' : 'translate-x-full'} w-80 md:w-[30vw] md:translate-x-0`}>
                 <Settings 
                     className="h-full"
-                    conversationId={conversationId}
+                    privacySettings={privacySettings}
+                    handleTogglePrivacy={handleTogglePrivacy}
+                    handleToggleAllPrivacy={handleToggleAllPrivacy}
                 />
             </div>
 

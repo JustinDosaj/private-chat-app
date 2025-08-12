@@ -8,6 +8,17 @@ export interface IAppView {
     conversationId?: string | null,
 }
 
+export interface ISettingsView {
+    className?: string,
+    privacySettings: Record<string, boolean>,
+    handleTogglePrivacy: (entity: string) => void,
+    handleToggleAllPrivacy: (checked: boolean) => void
+}
+
 export interface IAppInput extends IAppView {
     handleSendMessage: (input: string) => Promise<void>,
+}
+
+export interface IMainView extends IAppInput {
+    messages: import("@/types/chat").IMessage[]
 }

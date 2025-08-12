@@ -1,17 +1,12 @@
-import { IAppView } from "@/types/settings";
+import { IMainView } from "@/types/settings";
 import React, { useEffect, useRef } from 'react';
 import MarkdownEditor from '@uiw/react-markdown-editor';
 import remarkGfm from 'remark-gfm';
 import Input from "./Input";
 import { SelectModel } from "./SelectModel";
-import { useChat } from "@/hooks/useChat";
-
-export default function Main({className, conversationId}: IAppView) {
 
 
-    console.log("ConversationId: ", conversationId)
-
-    const { messages, handleSendMessage } = useChat(conversationId);
+export default function Main({className, messages, handleSendMessage}: IMainView) {
     const chatContainerRef = useRef<HTMLDivElement>(null);
 
     // Auto-scroll to bottom when messages update

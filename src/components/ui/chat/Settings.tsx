@@ -1,15 +1,9 @@
 import { PII_TYPE_OPTIONS } from "@/config/options.config"
-import { IAppView } from "@/types/settings";
-import { useChat } from "@/hooks/useChat";
-//import { useState } from "react";
+import { ISettingsView } from "@/types/settings";
 import { Button } from "../Button";
 
-// @TODO: Add Select All and Deselect All buttons to handle both cases of when a user unchecks or checks multiple selections
-
-export default function Settings({ className, conversationId }: IAppView) {
+export default function Settings({ className, privacySettings, handleTogglePrivacy, handleToggleAllPrivacy }: ISettingsView) {
     
-    const { privacySettings, handleTogglePrivacy, handleToggleAllPrivacy } = useChat(conversationId);
-
     return (
         <div className={`${className} border-l border-slate-300/40 p-6 bg-slate-50 overflow-y-scroll`}>
             <fieldset>
