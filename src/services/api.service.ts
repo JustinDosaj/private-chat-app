@@ -16,7 +16,8 @@ export async function sendMessage({input, conversationId, privacySettings, user}
 
     const response = await axios.post(`${process.env.NEXT_PUBLIC_CHAT_API_ROUTE}/chat`, {
             conversationId: conversationId,
-            message: input 
+            message: input,
+            privacySettings: privacySettings 
         },  // This is your request body
         {
             headers: {
@@ -33,7 +34,6 @@ export async function sendMessage({input, conversationId, privacySettings, user}
 export async function getMessages({user, conversationId}: ConversationProps) {
     
     const { idToken } = user
-
 
     const response = await axios.get(`${process.env.NEXT_PUBLIC_CHAT_API_ROUTE}/messages`, { 
         headers: {
