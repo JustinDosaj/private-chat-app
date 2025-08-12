@@ -13,11 +13,9 @@ export const useChat = (conversationId: string | null | undefined) => {
     }
     
     const { user } = useAuth();
-    //const { fetchConversations } = useConversations();
     const router = useRouter();
     const [messages, setMessages] = useState<IMessage[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
-    const [ allChecked, setAllChecked ] = useState<boolean>(true);
 
     // If there's a conversationId, load its messages
     useEffect(() => {
@@ -76,16 +74,14 @@ export const useChat = (conversationId: string | null | undefined) => {
 
     },[])
 
-    const handleToggleAllPrivacy = useCallback(() => {
+    const handleToggleAllPrivacy = useCallback((checked: boolean) => {
         setPrivacySettings(
             PII_TYPE_OPTIONS.reduce((acc, type) => ({
             ...acc,
-            [type.entity]: !allChecked
+            [type.entity]: checked
             }), {})
         )
-
-        setAllChecked(!allChecked)
-    }, [allChecked])
+    }, [])
 
     return {
         // Chat Messages
@@ -94,7 +90,6 @@ export const useChat = (conversationId: string | null | undefined) => {
         handleSendMessage,
        // Privacy
         privacySettings,
-        allChecked,
         handleTogglePrivacy,
         handleToggleAllPrivacy
     }

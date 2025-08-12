@@ -8,7 +8,7 @@ import { Button } from "../Button";
 
 export default function Settings({ className, conversationId }: IAppView) {
     
-    const { privacySettings, handleTogglePrivacy, handleToggleAllPrivacy, allChecked } = useChat(conversationId);
+    const { privacySettings, handleTogglePrivacy, handleToggleAllPrivacy } = useChat(conversationId);
 
     return (
         <div className={`${className} border-l border-slate-300/40 p-6 bg-slate-50 overflow-y-scroll`}>
@@ -36,12 +36,9 @@ export default function Settings({ className, conversationId }: IAppView) {
                     </div>
                     ))}
                 </div>
-                <div className="w-full flex justify-end py-4">
-                    { allChecked ? (
-                        <Button onClick={() => handleToggleAllPrivacy()}>Uncheck All</Button>
-                    ): (
-                        <Button onClick={() => handleToggleAllPrivacy()}>Check All</Button>
-                    )}
+                <div className="w-full space-x-4 flex justify-end py-4">
+                    <Button onClick={() => handleToggleAllPrivacy(false)}>Deselect All</Button>
+                    <Button onClick={() => handleToggleAllPrivacy(true)}>Select All</Button>
                 </div>
             </fieldset>
         </div>
