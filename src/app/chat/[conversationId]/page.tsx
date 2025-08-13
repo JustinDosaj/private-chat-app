@@ -7,7 +7,6 @@ import Main from '@/components/ui/chat/Main';
 import { useConversations } from '@/hooks/useConversations';
 import { useParams } from 'next/navigation';
 import { Bars3Icon, AdjustmentsHorizontalIcon } from '@heroicons/react/24/outline';
-import { SelectModel } from '@/components/ui/chat/SelectModel';
 import { useChat } from '@/hooks/useChat';
 
 const ChatPage = () => {
@@ -28,11 +27,10 @@ const ChatPage = () => {
             {/* Mobile Header Buttons */}
             <div className="flex md:hidden justify-between items-center p-4 border-b border-slate-200 bg-slate-50">
                 <button onClick={() => setShowMenu(true)} aria-label="Open menu">
-                <Bars3Icon className="h-6 w-6 text-slate-700" />
+                    <Bars3Icon className="h-6 w-6 text-slate-700" />
                 </button>
-                <SelectModel/>
                 <button onClick={() => setShowSettings(true)} aria-label="Open settings">
-                <AdjustmentsHorizontalIcon className="h-6 w-6 text-slate-700" />
+                    <AdjustmentsHorizontalIcon className="h-6 w-6 text-slate-700" />
                 </button>
             </div>
 
