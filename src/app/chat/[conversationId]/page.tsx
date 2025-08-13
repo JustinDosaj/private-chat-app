@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Settings from '@/components/ui/chat/Settings';
 import Menu from '@/components/ui/chat/Menu';
+import SidePanel from '@/components/ui/chat/SidePanel';
 import Main from '@/components/ui/chat/Main';
 import { useConversations } from '@/hooks/useConversations';
 import { useParams } from 'next/navigation';
@@ -35,36 +36,26 @@ const ChatPage = () => {
             </div>
 
             {/* Sidebar Menu (left) */}
-            <div className={`fixed md:static z-40 bg-slate-50 h-full transition-transform duration-300 md:translate-x-0 ${showMenu ? 'translate-x-0' : '-translate-x-full'} md:w-[15vw] w-64`}>
+            <SidePanel isOpen={showMenu} onClose={() => setShowMenu(false)} side="left" widthClass="md:w-[15vw] w-64">
                 <Menu 
                     className="h-full"
                     conversationId={conversationId}
                 />
-            </div>
-
-            {/* Backdrop for Menu */}
-            {showMenu && (
-                <div className="fixed inset-0 z-30 bg-black/30 md:hidden" onClick={() => setShowMenu(false)} />
-            )}
+            </SidePanel>
 
             {/* Main Chat Area */}
             <Main messages={messages} handleSendMessage={handleSendMessage}/>
         
 
             {/* Settings (right) */}
-            <div className={`fixed md:static z-40 bg-slate-50 h-full top-0 right-0 transition-transform duration-300 transform ${showSettings ? 'translate-x-0' : 'translate-x-full'} w-80 md:w-[30vw] md:translate-x-0`}>
+            <SidePanel isOpen={showSettings} onClose={() => setShowSettings(false)} side="right" widthClass="w-80 md:w-[30vw]">
                 <Settings 
                     className="h-full"
                     privacySettings={privacySettings}
                     handleTogglePrivacy={handleTogglePrivacy}
                     handleToggleAllPrivacy={handleToggleAllPrivacy}
                 />
-            </div>
-
-            {/* Backdrop for Settings */}
-            {showSettings && (
-                <div className="fixed inset-0 z-30 bg-black/30 md:hidden" onClick={() => setShowSettings(false)} />
-            )}
+            </SidePanel>
         </div>
     );
 };
