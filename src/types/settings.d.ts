@@ -1,3 +1,5 @@
+import { IMessage } from "@/types/chat";
+
 export interface ISettingsList {
     entity: string;
     label: string;
@@ -20,5 +22,5 @@ export interface IAppInput extends IAppView {
 }
 
 export interface IMainView extends IAppInput {
-    messages: import("@/types/chat").IMessage[]
+    messages: IMessage[]
 }
