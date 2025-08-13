@@ -25,7 +25,7 @@ const ChatPage = () => {
     return (
         <div className="h-screen flex flex-col md:flex-row bg-white font-sans overflow-hidden">
         
-            {/* Mobile Header Buttons */}
+            {/* Mobile Header */}
             <div className="flex md:hidden justify-between items-center p-4 border-b border-slate-200 bg-slate-50">
                 <button onClick={() => setShowMenu(true)} aria-label="Open menu">
                     <Bars3Icon className="h-6 w-6 text-slate-700" />
@@ -35,7 +35,7 @@ const ChatPage = () => {
                 </button>
             </div>
 
-            {/* Sidebar Menu (left) */}
+            {/* Sidebar Menu */}
             <SidePanel isOpen={showMenu} onClose={() => setShowMenu(false)} side="left" widthClass="md:w-[15vw] w-64">
                 <Menu 
                     className="h-full"
@@ -47,7 +47,7 @@ const ChatPage = () => {
             <Main messages={messages} handleSendMessage={handleSendMessage}/>
         
 
-            {/* Settings (right) */}
+            {/* Settings */}
             <SidePanel isOpen={showSettings} onClose={() => setShowSettings(false)} side="right" widthClass="w-80 md:w-[30vw]">
                 <Settings 
                     className="h-full"
