@@ -25,15 +25,12 @@ export const ChatBox = ({messages}: {messages: IMessage[]}) => {
                         : 'bg-white text-slate-900'}
                     `}
                     >
-                    {msg.sender === 'bot' ? (
-                        <MarkdownEditor.Markdown 
-                            remarkPlugins={[remarkGfm]}
-                            className="my-4"
-                            source={msg.content}
-                        />
-                    ) : (
-                        msg.content // Render plain text for user messages
-                    )}
+                    <MarkdownEditor.Markdown 
+                        remarkPlugins={[remarkGfm]}
+                        className="my-2 markdown-body"
+                        source={msg.content}
+                        style={{ color: 'inherit', backgroundColor: 'transparent' }}
+                    />
                     </div>
                 </div>
             ))}
