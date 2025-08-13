@@ -7,7 +7,6 @@ import { NavLink } from './NavLink'
 import { NavButton } from './NavButton'
 import { Button } from '../ui/Button'
 import { Container } from '../ui/Container'
-import { Logo } from '../ui/Logo'
 import { useAuth } from '@/hooks/useAuth'
 
 function MobileNavLink({href,children,}: { href: string, children: React.ReactNode}) {
@@ -120,12 +119,12 @@ export function Navbar() {
             <nav className="relative z-50 flex justify-between">
             <div className="flex items-center md:gap-x-12">
                 <Link href="#" aria-label="Home">
-                <Logo className="h-10 w-auto" />
+                  <div className="h-10 w-auto font-bold mt-4" >PII Removal</div>
                 </Link>
                 <div className="hidden md:flex md:gap-x-6">
-                <NavLink href="/">Home</NavLink>
-                <NavLink href="/pricing">Pricing</NavLink>
-                <NavLink href="/contact">Contact</NavLink>
+                  <NavLink href="/">Home</NavLink>
+                  <NavLink href="/pricing">Pricing</NavLink>
+                  <NavLink href="/contact">Contact</NavLink>
                 </div>
             </div>
             <div className="flex items-center gap-x-5 md:gap-x-8">
